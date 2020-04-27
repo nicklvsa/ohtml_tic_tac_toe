@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.game {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 34rem;
+    height: 34rem;
+    border: 1px solid black;
+}
+
+.padded {
+    margin-top: 15px;
+}
+
+#tiles > div {
+    width: 10rem;
+    height: 10rem;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    border: 1px solid black;
+}
+
+#tiles > div:hover {
+    cursor: pointer;
+    background-color: lightcoral;
+}

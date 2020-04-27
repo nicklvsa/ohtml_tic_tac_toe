@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/ohtml.js"></script>
+    <script src="./assets/script.js" defer></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+   <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="game" %for="tile of tiles -> render(div)" id="tiles">
+            ${tile}
+        </div>
+        <div class="padded" %if="winner">
+            <p %set="winner"></p>
+            <button @click="restartGame">Restart Game</button>
+        </div>
+   </div>
+</body>
+</html>
