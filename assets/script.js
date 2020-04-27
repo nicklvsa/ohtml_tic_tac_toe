@@ -30,6 +30,7 @@ parseOHTML(document.body, {
         btns.forEach((element) => {
             element.innerHTML = "";
             element.classList.add('can-hover');
+            element.classList.remove('blur');
             element.addEventListener('click', eventChooseTile);
         });
     },
@@ -38,6 +39,7 @@ parseOHTML(document.body, {
         const btns = document.querySelectorAll('#tiles > div');
         btns.forEach((element) => {
             element.classList.remove('can-hover');
+            element.classList.add('blur');
             element.removeEventListener('click', eventChooseTile, false);
         });
     },

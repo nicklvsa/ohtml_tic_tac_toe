@@ -26,6 +26,10 @@
     border: 1px solid black;
 }
 
+.blur {
+    filter: blur(4px);
+}
+
 .can-hover:hover {
     cursor: pointer;
     background-color: lightcoral;
