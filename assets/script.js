@@ -15,6 +15,7 @@ parseOHTML(document.body, {
             const wonRow = win[i];
             if (tiles[wonRow[0]] != "" && tiles[wonRow[0]] == tiles[wonRow[1]] && tiles[wonRow[1]] == tiles[wonRow[2]]) {
                 StateManager.setState('winner', `${StateManager.getState('currentPlay')}'s won the game!`);
+                StateManager.getState('disableBoard')();
                 // alert(`${StateManager.getState('currentPlay')}'s won the game!`);
             }
         }
@@ -28,6 +29,16 @@ parseOHTML(document.body, {
         const btns = document.querySelectorAll('#tiles > div');
         btns.forEach((element) => {
             element.innerHTML = "";
+            element.classList.add('can-hover');
+            element.addEventListener('click', eventChooseTile);
+        });
+    },
+
+    disableBoard() {
+        const btns = document.querySelectorAll('#tiles > div');
+        btns.forEach((element) => {
+            element.classList.remove('can-hover');
+            element.removeEventListener('click', eventChooseTile, false);
         });
     },
 
@@ -46,10 +57,14 @@ parseOHTML(document.body, {
 }, false);
 
 //setup the actions
+const eventChooseTile = (evt) => {
+    StateManager.getState('chooseTile')(evt);
+};
+
 const btns = document.querySelectorAll('#tiles > div');
 btns.forEach((element, i) => {
     element.classList.add(i);
-    element.addEventListener('click', (evt) => {
-        StateManager.getState('chooseTile')(evt);
-    });
+    element.classList.add('can-hover');
+    element.addEventListener('click', eventChooseTile);
 });
+
